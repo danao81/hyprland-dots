@@ -85,7 +85,9 @@ button:hover {
 #workspaces button.active {
     background-color: #bd93f9;
     box-shadow: inherit;
-
+    border: 1px;
+    border-style: solid;
+    border-color: #44475a;
 }
 
 

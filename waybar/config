@@ -31,7 +31,7 @@
 
 "custom/weather": {
         "format": "{}",
-        "exec": "curl wttr.in/Rome?format=1",
+        "exec": "curl wttr.in/?format=1",
         "interval": 6000
 
 },
@@ -91,8 +91,8 @@
      
     
          "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%A, %d %B %Y}",
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:%A, %d %B %Y}  ",
 
 
             },
