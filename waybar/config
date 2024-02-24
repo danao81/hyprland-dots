@@ -1,7 +1,7 @@
 {
     "layer": "top",
     
-    "width": 1200,
+    "width": 1800,
 
     "margin-top": 5,
 
@@ -11,17 +11,18 @@
 
 
 
-    "modules-left": ["wlr/workspaces","hyprland/window"],
+    "modules-left": ["custom/pacman","hyprland/workspaces","hyprland/window"],
     "modules-center": ["custom/weather"],
-    "modules-right": ["cpu","memory","temperature","network","wireplumber","backlight","battery","clock"],
+    "modules-right": ["custom/spotify","cpu","memory","temperature","network","wireplumber","clock"],
    
     "network": {
-    "interface": "wlan0",
+    "interface": "enp3s0",
+    "interval": 5,
     "format": "{ifname}",
     "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} 󰛳",
     "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format": "{ifname} via {gwaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
@@ -55,17 +56,17 @@
 
     "memory": {
     "interval": 10,
-    "format": "{}% ",
+    "format": "{}% 󰾲",
     "max-length": 10
 },
 
 
 
  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    // "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C ",
     "format": "{temperatureC}°C "
 },
 
@@ -91,8 +92,8 @@
      
     
          "clock": {
-        "format": "{:%H:%M}  ",
-        "format-alt": "{:%A, %d %B %Y}  ",
+        "format": "{:%H:%M} 󰥔 ",
+        "format-alt": "{:%A, %d %B %Y}  ",
 
 
             },
@@ -105,6 +106,35 @@
     "format-icons": ["", "", ""],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 },
+
+"custom/pacman": {
+
+  "format": "  {icon}{}",
+  "return-type": "json",
+  "format-icons": {
+    "pending-updates": " ",
+    "updated": ""
+  },
+  "exec-if": "which waybar-updates",
+  "exec": "waybar-updates"
+}
+
+
+    
+
+
+},
+
+"custom/spotify": {
+
+    "exec": "/usr/bin/python3 /home/dano/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+}, 
+
 
 
 

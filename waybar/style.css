@@ -2,9 +2,9 @@
     /* `otf-font-awesome` is required to be installed for icons */
    
     border: none;
-    border-radius: 10px;
-    font-family: FiraCode-SemiBold, FontAwesome;
-    font-size: 13px;
+    border-radius: 20px;
+    font-family: FiraCode, MesloLGS NF;
+    font-size: 14px;
 }
 
 
@@ -92,7 +92,7 @@ button:hover {
 
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #6272a4;
 }
 
 #mode, 
@@ -107,7 +107,7 @@ button:hover {
 #pulseaudio,
 #custom-weather,
 #wireplumber,
-#custom-media,
+#custom-spotify,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -158,11 +158,20 @@ button:hover {
     background-color: #ff5555;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+@keyframes blink-update {
+	to {
+		background-color: #44475a;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
 }
 
 #battery.critical:not(.charging) {
@@ -227,9 +236,9 @@ label:focus {
     color: #f1fa8c;
 }
 
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+#custom-spotify {
+    background-color: #6272a4;
+    color: #ffb86c;
     min-width: 100px;
 }
 
@@ -321,4 +330,9 @@ label:focus {
 	background-color: transparent;
 }
 
-
+#custom-pacman {
+    background-color: #6272a4;
+    color: #f1fa8c;
+    margin: 0 2px;
+    padding: 0 10px;
+}
