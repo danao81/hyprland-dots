@@ -99,6 +99,22 @@
             },
  
 
+"custom/spotify": {
+
+    "exec": "/usr/bin/python3 /home/dano/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+}, 
+
+
+
+
+
+
+
 
  "wireplumber": {
     "format": "{volume}% {icon}",
@@ -121,19 +137,6 @@
 
 
     
-
-
-},
-
-"custom/spotify": {
-
-    "exec": "/usr/bin/python3 /home/dano/.config/waybar/mediaplayer.py --player spotify",
-    "format": "{}  ",
-    "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
-}, 
 
 
 
